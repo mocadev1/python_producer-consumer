@@ -33,8 +33,8 @@ class Producer(threading.Thread):
         global mutex, empty, full
 
         while True:
-
-            time.sleep(2.5) # Modify            
+            rand_sleep = round(random.random() * 10, 2) # Sleeping between 1 to 10 sec
+            time.sleep(rand_sleep)
 
             for _ in range(random.randrange(2, 6)): # This actually takes the range (2-5) due to randrange excludes the upper limit
                 # print('Producer entering')
@@ -62,8 +62,8 @@ class Consumer(threading.Thread):
         global mutex, empty, full
 
         while True:
-            
-            time.sleep(2.5) # Modify
+            rand_sleep = round(random.random() * 10, 2)
+            time.sleep(rand_sleep)
 
             for _ in range(random.randrange(2, 6)): # This actually takes the range (2-5) due to randrange excludes the upper limit
                 # print('Consumer entering')
