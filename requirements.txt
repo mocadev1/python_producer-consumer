@@ -1,0 +1,4 @@
+evdev==1.4.0
+keyboard==0.13.5
+python-xlib==0.31
+six==1.16.0

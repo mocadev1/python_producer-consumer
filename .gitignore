@@ -1,2 +1,5 @@
 # Ignoring virtual environment
 venv/
+
+# Ignoring folders created by JetBrains IDE's
+.idea/
