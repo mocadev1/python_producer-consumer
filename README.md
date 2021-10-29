@@ -17,7 +17,7 @@ ___
    `pip install requirements.txt`
 5. Run it
     >On Windows, run:
-   >`py producer_consumer.py`
+   `py producer_consumer.py`
    >On Unix or MacOS, run:
    >`sudo venv/bin/python producer_consumer.py`
    
