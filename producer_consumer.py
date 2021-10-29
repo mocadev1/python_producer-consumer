@@ -36,8 +36,9 @@ class Producer(threading.Thread):
             rand_sleep = round(random.random() * 10, 2) # Sleeping between 1 to 10 sec
             time.sleep(rand_sleep)
 
-            for _ in range(random.randrange(2, 6)): # This actually takes the range (2-5) due to randrange excludes the upper limit
-                # print('Producer entering')
+            items_to_produce = random.randrange(2, 6) # Picking random number in the range 2-5, top limit (6) excluded
+
+            for _ in range(items_to_produce):
                 empty.acquire()
                 mutex.acquire()
 
@@ -51,7 +52,7 @@ class Producer(threading.Thread):
 
 
     def append(self):
-        """Puts the product to the buffer"""
+        """Puts the product into the buffer"""
         buffer[in_index] = "*"
 
 
@@ -65,8 +66,9 @@ class Consumer(threading.Thread):
             rand_sleep = round(random.random() * 10, 2)
             time.sleep(rand_sleep)
 
-            for _ in range(random.randrange(2, 6)): # This actually takes the range (2-5) due to randrange excludes the upper limit
-                # print('Consumer entering')
+            items_to_consume = random.randrange(2, 6) # Picking random number in the range 2-5, top limit (6) excluded
+
+            for _ in range(items_to_consume): 
                 full.acquire()
                 mutex.acquire()
 
@@ -85,7 +87,7 @@ class Consumer(threading.Thread):
 
 
 def show():
-    """Just to print on console the "progress\""""
+    """Just to print the "progress\""""
     hyphen = '-'
     d_hyphen = '--'
     for char in range(CAPACITY):
